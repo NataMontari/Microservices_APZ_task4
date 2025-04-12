@@ -1,8 +1,8 @@
 # Microservices_APZ
 Continuing the tasks, 
-Code for task 3 from apz, featuring a simple microservice
+Code for task 4 from apz, featuring a simple microservice
 
-Additional tasks: config service
+Additional tasks: using Kafka
 
 facade_service.py - facade service for client-server communication. Receives get or post requests from the client and manages them (runs on localhost: 8080)
 
@@ -22,22 +22,47 @@ config.txt - if you decide to change the ports in code for messages or logging s
 
 Usage:
 
+start kafka zookeper
+
+[./images/5.jpg](./images/5.jpg)
+
+start 2 kafka servers
+
+[./images/6.jpg](./images/6.jpg)
+
+
+[./images/7.jpg](./images/7.jpg)
+
+
+create a kafka topic messages with 2 replication factor and 2 partiotions,
+
+[./images/8.jpg](./images/8.jpg)
+
+
 start hazelcast
 
 run all 4 microservices in separate terminals
 
-i fixed code a little bit while servers were running to check if duplicated messages still work for separate logging services, so msg1 was sent
-
-multiple times
+Here I tried posting some messages
 
 [./images/1.jpg](./images/1.jpg)
 
+here is the response, as you can see I encountered some errors so i had to shut messages service down and try again
+
 [./images/2.jpg](./images/2.jpg)
+
+But! When I fixed the code - i posted ten more messages and retrieved them. As you can see no info was lost
 
 [./images/3.jpg](./images/3.jpg)
 
+Here's what the messages service "consumed" from the kafka
+
 [./images/4.jpg](./images/4.jpg)
 
+Other instances of messages service retrieve only what hasn't been retrieved:
+
+
+[./images/9.jpg](./images/9.jpg)
 
 
 
